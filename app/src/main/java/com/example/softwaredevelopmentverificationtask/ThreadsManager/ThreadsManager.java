@@ -13,6 +13,7 @@ public class ThreadsManager {
     private static T3 t3;
     private static boolean threadsAreWorks;
     public static void activateGPSandBatteryServerRepeater(int A_frequencyT1, int B_frequencyT2, int C_indexToActivate, String URL, Activity activity){
+
          t3 = new T3("T3",C_indexToActivate,URL);
          t3.start();
          t1 = new T1("T1",activity,A_frequencyT1);

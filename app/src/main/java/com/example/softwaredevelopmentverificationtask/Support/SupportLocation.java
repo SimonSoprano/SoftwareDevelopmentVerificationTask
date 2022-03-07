@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,13 +27,13 @@ import java.util.List;
 
 public class SupportLocation {
     private static volatile LocationManager locationManager;
-    private static volatile LocationListener locationListener;
-    private static volatile Location mLocation = new Location(LocationManager.GPS_PROVIDER);
+    private static volatile Location mLocation ;
 
 
 
 
     public  Location getMyCurrentLocation(Activity activity){
+        mLocation = new Location(LocationManager.GPS_PROVIDER);
         mLocation=getlocation(activity);
         if(mLocation.getLongitude()==0.0){
             if (Build.VERSION.SDK_INT>=23
@@ -61,29 +62,9 @@ public class SupportLocation {
                 });
             }
         }
-
+        Log.i("Thread1",String.valueOf(mLocation.getLatitude()));
         return mLocation;
     }
-
-
-
-
-
-//    @SuppressLint("MissingPermission")
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if(requestCode==100&&grantResults[0]==RESULT_OK){
-//
-//            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
-//                @Override
-//                public void onLocationChanged(@NonNull Location location) {
-//                    mLocation=location;
-//                }
-//            });
-//        }
-//
-//    }
 
 
     protected Location getlocation(Activity activity) {
