@@ -26,7 +26,6 @@ import java.util.List;
 
 public class SupportLocation {
     private static volatile LocationManager locationManager;
-    private static volatile LocationListener locationListener;
     private static volatile Location mLocation = new Location(LocationManager.GPS_PROVIDER);
 
 
@@ -64,26 +63,6 @@ public class SupportLocation {
 
         return mLocation;
     }
-
-
-
-
-
-//    @SuppressLint("MissingPermission")
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if(requestCode==100&&grantResults[0]==RESULT_OK){
-//
-//            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
-//                @Override
-//                public void onLocationChanged(@NonNull Location location) {
-//                    mLocation=location;
-//                }
-//            });
-//        }
-//
-//    }
 
 
     protected Location getlocation(Activity activity) {
