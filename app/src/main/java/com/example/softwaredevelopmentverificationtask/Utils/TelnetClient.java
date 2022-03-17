@@ -33,7 +33,7 @@ public class TelnetClient {
                    e.printStackTrace();
                }
                 //here we making our HTTP request and saving it in array with bytes "data"
-                byte[] data = ("GET "+urlParser(URL)[1]+" HTTP/1.1 \n"
+                byte[] data = ("POST "+urlParser(URL)[1]+" HTTP/1.1 \n"
                               +"Host: "+urlParser(URL)[0]+"\n"
                               +"Connection: close\n"
                               +"Content-type: aplication/json\n"
